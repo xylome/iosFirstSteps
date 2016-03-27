@@ -26,20 +26,42 @@ class PlaySoundViewController: UIViewController {
     var audioPlayerNode: AVAudioPlayerNode!
     var stopTimer: NSTimer!
     
-    enum ButtonType: Int {case Slow = 0, Fast, Chipmunk, Vader, Echo, Reverb}
+    enum ButtonType: Int {case Slow = 0, Fast, Chipmunk, Vador, Reverb, Echo}
     
     @IBAction func playSoundForButton(sender: UIButton) {
         print("Play sound button")
+        switch (ButtonType(rawValue: sender.tag)!) {
+        case .Slow:
+            print("Playing slowly")
+            playSound(rate: 0.5)
+        case .Fast:
+            print("Play fast")
+            playSound(rate: 1.5)
+        case .Chipmunk:
+            print("Play Chipmunk")
+            playSound(pitch: 1000)
+        case .Vador:
+            print("Play Vador")
+            playSound(pitch: -1000)
+        case .Reverb:
+            print("Play with reverb")
+            playSound(reverb: true)
+        case .Echo:
+            print("Play with echo")
+            playSound(echo: true)
+        }
+        configureUI(.Playing)
     }
     
     @IBAction func stopButtonPressed(sender: AnyObject) {
         print("Stop audio button")
+        stopAudio()
         
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        setupAudio()
         // Do any additional setup after loading the view.
     }
 
@@ -49,6 +71,10 @@ class PlaySoundViewController: UIViewController {
     }
     
 
+    override func viewWillAppear(animated: Bool) {
+        configureUI(.NotPlaying)
+    }
+    
     /*
     // MARK: - Navigation
 
