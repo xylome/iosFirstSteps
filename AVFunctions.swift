@@ -38,10 +38,11 @@ extension PlaySoundViewController: AVAudioPlayerDelegate {
     
     func playSound(rate rate: Float? = nil, pitch: Float? = nil, echo: Bool = false, reverb: Bool = false) {
         audioEngine = AVAudioEngine()
-        
+ 
         // node for playing audio
         audioPlayerNode = AVAudioPlayerNode()
         audioEngine.attachNode(audioPlayerNode)
+        try! AVAudioSession.sharedInstance().overrideOutputAudioPort(AVAudioSessionPortOverride.Speaker)
         
         let changePitchRateNode = AVAudioUnitTimePitch()
         if let pitch = pitch {
@@ -61,6 +62,7 @@ extension PlaySoundViewController: AVAudioPlayerDelegate {
         reverbNode.loadFactoryPreset(.Cathedral)
         reverbNode.wetDryMix = 50
         audioEngine.attachNode(reverbNode)
+        
   
         if echo == true && reverb == true {
             connectAudioNodes(audioPlayerNode, changePitchRateNode, echoNode, reverbNode, audioEngine.outputNode)
@@ -72,6 +74,7 @@ extension PlaySoundViewController: AVAudioPlayerDelegate {
             connectAudioNodes(audioPlayerNode, changePitchRateNode, audioEngine.outputNode)
         }
         
+        //
         audioPlayerNode.stop()
         audioPlayerNode.scheduleFile(audioFile, atTime: nil) {
             var delayInSeconds: Double = 0
@@ -85,7 +88,7 @@ extension PlaySoundViewController: AVAudioPlayerDelegate {
                 }
             }
             
-            self.stopTimer = NSTimer(timeInterval: delayInSeconds, target: self, selector: "stopAudio", userInfo: nil, repeats: false)
+            self.stopTimer = NSTimer(timeInterval: delayInSeconds, target: self, selector: #selector(PlaySoundViewController.stopAudio), userInfo: nil, repeats: false)
             NSRunLoop.mainRunLoop().addTimer(self.stopTimer!, forMode: NSDefaultRunLoopMode)
         }
         do {
@@ -94,7 +97,9 @@ extension PlaySoundViewController: AVAudioPlayerDelegate {
             showAlert(Alerts.AudioEngineError, message: String(error))
         }
         
+        //audioPlayerNode.outputFormatForBus(AV)
         audioPlayerNode.play()
+        
     }
     
     func stopAudio() {
