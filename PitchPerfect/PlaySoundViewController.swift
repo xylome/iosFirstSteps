@@ -21,6 +21,15 @@ class PlaySoundViewController: UIViewController {
     @IBOutlet weak var echoButton:UIButton!
     @IBOutlet weak var stopButton:UIButton!
     
+    @IBOutlet weak var snailButton2:UIButton!
+    @IBOutlet weak var rabbitButton2:UIButton!
+    @IBOutlet weak var chipmunkButton2:UIButton!
+    @IBOutlet weak var vadorButton2:UIButton!
+    @IBOutlet weak var reverbButton2:UIButton!
+    @IBOutlet weak var echoButton2:UIButton!
+    @IBOutlet weak var stopButton2:UIButton!
+
+    
     var audioFile: AVAudioFile!
     var audioEngine: AVAudioEngine!
     var audioPlayerNode: AVAudioPlayerNode!
@@ -29,6 +38,7 @@ class PlaySoundViewController: UIViewController {
     enum ButtonType: Int {case Slow = 0, Fast, Chipmunk, Vador, Reverb, Echo}
     
     @IBAction func playSoundForButton(sender: UIButton) {
+       // configureUI(.Playing)
         print("Play sound button")
         switch (ButtonType(rawValue: sender.tag)!) {
         case .Slow:
@@ -50,8 +60,7 @@ class PlaySoundViewController: UIViewController {
             print("Play with echo")
             playSound(echo: true)
         }
-        configureUI(.Playing)
-    }
+           }
     
     @IBAction func stopButtonPressed(sender: AnyObject) {
         print("Stop audio button")

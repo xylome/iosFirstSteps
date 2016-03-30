@@ -14,11 +14,13 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
     @IBOutlet weak var recordingLabel: UILabel!
     @IBOutlet weak var recordButton: UIButton!
     @IBOutlet weak var stopButton: UIButton!
+    var startRecordText: String!
    
     var audioRecorder: AVAudioRecorder!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        startRecordText = recordingLabel.text
         // Do any additional setup after loading the view, typically from a nib.
     }
 
@@ -53,7 +55,7 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
 
     @IBAction func stopRecord(sender: AnyObject) {
         print("Stop recording…")
-        recordingLabel.text = "Recording done"
+        recordingLabel.text = startRecordText
         recordButton.enabled = true
         stopButton.enabled = false
         

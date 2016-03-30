@@ -14,8 +14,8 @@
 		F7580A161CA43E6C005D5F50 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F7580A141CA43E6C005D5F50 /* LaunchScreen.storyboard */; };
 		F7580A211CA43E6C005D5F50 /* PitchPerfectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7580A201CA43E6C005D5F50 /* PitchPerfectTests.swift */; };
 		F7580A2C1CA43E6C005D5F50 /* PitchPerfectUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7580A2B1CA43E6C005D5F50 /* PitchPerfectUITests.swift */; };
+		F77BD75B1CABCF75009E9A58 /* AVFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77BD75A1CABCF75009E9A58 /* AVFunctions.swift */; };
 		F7E868A81CA5876600F1E647 /* PlaySoundViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7E868A71CA5876600F1E647 /* PlaySoundViewController.swift */; };
-		F7F7DD891CA8556A00AFD4F2 /* AVFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7F7DD881CA8556A00AFD4F2 /* AVFunctions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,8 +49,8 @@
 		F7580A271CA43E6C005D5F50 /* PitchPerfectUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PitchPerfectUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7580A2B1CA43E6C005D5F50 /* PitchPerfectUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PitchPerfectUITests.swift; sourceTree = "<group>"; };
 		F7580A2D1CA43E6C005D5F50 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F77BD75A1CABCF75009E9A58 /* AVFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AVFunctions.swift; sourceTree = "<group>"; };
 		F7E868A71CA5876600F1E647 /* PlaySoundViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaySoundViewController.swift; sourceTree = "<group>"; };
-		F7F7DD881CA8556A00AFD4F2 /* AVFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AVFunctions.swift; path = ../AVFunctions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,7 +101,7 @@
 		F7580A0A1CA43E6C005D5F50 /* PitchPerfect */ = {
 			isa = PBXGroup;
 			children = (
-				F7F7DD881CA8556A00AFD4F2 /* AVFunctions.swift */,
+				F77BD75A1CABCF75009E9A58 /* AVFunctions.swift */,
 				F7580A0B1CA43E6C005D5F50 /* AppDelegate.swift */,
 				F7580A0D1CA43E6C005D5F50 /* RecordSoundsViewController.swift */,
 				F7580A0F1CA43E6C005D5F50 /* Main.storyboard */,
@@ -265,7 +265,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F7F7DD891CA8556A00AFD4F2 /* AVFunctions.swift in Sources */,
+				F77BD75B1CABCF75009E9A58 /* AVFunctions.swift in Sources */,
 				F7580A0E1CA43E6C005D5F50 /* RecordSoundsViewController.swift in Sources */,
 				F7E868A81CA5876600F1E647 /* PlaySoundViewController.swift in Sources */,
 				F7580A0C1CA43E6C005D5F50 /* AppDelegate.swift in Sources */,
